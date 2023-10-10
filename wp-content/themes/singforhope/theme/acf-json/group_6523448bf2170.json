@@ -1,0 +1,95 @@
+{
+    "key": "group_6523448bf2170",
+    "title": "Pianos Page Content",
+    "fields": [
+        {
+            "key": "field_6523448cdee60",
+            "label": "Pianos Page Content",
+            "name": "pianos_page_content",
+            "aria-label": "",
+            "type": "acfe_block_editor",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_save_meta": 0,
+            "min_height": 175,
+            "max_height": "",
+            "autoresize": 1,
+            "topbar": 1,
+            "topbar_tools": [
+                "inserter",
+                "undo",
+                "navigation"
+            ],
+            "fixed_toolbar": 1,
+            "allow_code_mode": 1,
+            "allow_lock": 1,
+            "allow_upload": 1,
+            "allow_library": 1,
+            "allowed_blocks": {
+                "row-0": {
+                    "block": "core\/paragraph"
+                },
+                "row-1": {
+                    "block": "core\/image"
+                },
+                "row-2": {
+                    "block": "core\/gallery"
+                },
+                "row-3": {
+                    "block": "core\/quote"
+                },
+                "row-4": {
+                    "block": "core\/heading"
+                },
+                "row-5": {
+                    "block": "core\/list"
+                },
+                "row-6": {
+                    "block": "core\/code"
+                },
+                "row-7": {
+                    "block": "core\/shortcode"
+                },
+                "row-8": {
+                    "block": "core\/html"
+                },
+                "row-9": {
+                    "block": "core\/table"
+                }
+            },
+            "height": 175
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "726"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_display_title": "",
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1696810152
+}

@@ -6,84 +6,146 @@
  *
  * @package Sing_for_Hope
  */
-
 ?>
+
+<?php
+$view = isset( $_COOKIE['view'] ) ? $_COOKIE['view'] : 'Staff View';
+?>
+
+<style>
+	#programs-nav {
+		display: none;
+	}
+</style>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-<!-- Hero -->
-<div class="relative overflow-hidden">
-  <!-- Gradients -->
-  <div aria-hidden="true" class="flex absolute -top-96 left-1/2 transform -translate-x-1/2">
-    <div class="bg-gradient-to-r from-violet-300/50 to-purple-100 blur-3xl w-[25rem] h-[44rem] rotate-[-60deg] transform -translate-x-[10rem] dark:from-violet-900/50 dark:to-purple-900"></div>
-    <div class="bg-gradient-to-tl from-blue-50 via-blue-100 to-blue-50 blur-3xl w-[90rem] h-[50rem] rounded-fulls origin-top-left -rotate-12 -translate-x-[15rem] dark:from-indigo-900/70 dark:via-indigo-900/70 dark:to-blue-900/70"></div>
-  </div>
-  <!-- End Gradients -->
+	<?php if ( is_user_logged_in() ) : ?>
+		<div id="programnav" class="px-8 py-1 bg-gray-100 flex justify-between">
+			<div>
+				<ol class="py-1 flex items-center whitespace-nowrap min-w-0" aria-label="Breadcrumb">
+					<li class="text-xs">
+						<a class="flex items-center text-gray-500 hover:text-blue-600" href="/pianos">
+							Pianos
+							<svg class="flex-shrink-0 mx-3 overflow-visible h-2.5 w-2.5 text-gray-400 dark:text-gray-600"
+								width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M5 1L10.6869 7.16086C10.8637 7.35239 10.8637 7.64761 10.6869 7.83914L5 14"
+									stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+							</svg>
+						</a>
+					</li>
+					<li class="text-xs">
+						<div class="hs-dropdown relative inline-flex [--strategy:absolute]">
+							<button id="hs-dropdown-left-but-right-on-lg" type="button"
+								class="hs-dropdown-toggle flex items-center text-gray-500 hover:text-blue-600"
+								onclick="toggleDropdown()">
+								Programs
+								<svg class="flex-shrink-0 mx-3 overflow-visible h-2.5 w-2.5 text-gray-400 dark:text-gray-600"
+									width="16" height="16" viewBox="0 0 16 16" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path d="M5 1L10.6869 7.16086C10.8637 7.35239 10.8637 7.64761 10.6869 7.83914L5 14"
+										stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+								</svg>
 
-  <div class="relative z-10">
-    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
-      <div class="max-w-2xl text-center mx-auto">
-        <p class="inline-block text-sm font-medium bg-clip-text bg-gradient-to-l from-blue-600 to-violet-500 text-transparent dark:from-blue-400 dark:to-violet-400">
-          Preline: A vision for 2023
-        </p>
+							</button>
 
-        <!-- Title -->
-        <div class="mt-5 max-w-2xl">
-          <h1 class="block font-semibold text-gray-800 text-4xl md:text-5xl lg:text-6xl dark:text-gray-200">
-            The Intuitive Web Solutions
-          </h1>
-        </div>
-        <!-- End Title -->
+							<div id="dropdown-menu"
+								class="hs-dropdown-menu hs-dropdown-open:opacity-100 w-72 transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden z-10 transition-[margin,opacity] opacity-0 duration-300 mt-2 min-w-[15rem] bg-white shadow-md rounded-lg p-2 dark:bg-gray-800 dark:border dark:border-gray-700 dark:divide-gray-700"
+								aria-labelledby="hs-dropdown-left-but-right-on-lg">
+								<?php
+								$args = array(
+									'post_type' => 'program',
+									'posts_per_page' => -1 // get all posts
+								);
+								$programs = get_posts( $args );
+								foreach ( $programs as $program ) {
+									setup_postdata( $program );
+									?>
+									<a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
+										href="<?php echo get_permalink( $program->ID ); ?>">
+										<?php echo get_the_title( $program->ID ); ?>
+									</a>
 
-        <div class="mt-5 max-w-3xl">
-          <p class="text-lg text-gray-600 dark:text-gray-400">Preline UI is an open-source set of prebuilt UI components, ready-to-use examples and Figma design system based on the utility-first Tailwind CSS framework.</p>
-        </div>
-
-        <!-- Buttons -->
-        <div class="mt-8 grid gap-3 w-full sm:inline-flex sm:justify-center">
-          <a class="inline-flex justify-center items-center gap-x-3 text-center bg-blue-600 hover:bg-blue-700 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800" href="javascript:;">
-            Get started
-            <svg class="w-3 h-3" width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </a>
-          <a class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-gray-800 hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2 transition-all text-sm dark:text-white dark:hover:bg-gray-800 dark:hover:border-gray-900 dark:focus:ring-gray-900 dark:focus:ring-offset-gray-800" href="#">
-            <svg class="w-4 h-4" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6.875 18C8.531 18 9.875 16.656 9.875 15V12H6.875C5.219 12 3.875 13.344 3.875 15C3.875 16.656 5.219 18 6.875 18Z" fill="#0ACF83"></path>
-              <path d="M3.875 9C3.875 7.344 5.219 6 6.875 6H9.875V12H6.875C5.219 12 3.875 10.656 3.875 9Z" fill="#A259FF"></path>
-              <path d="M3.875 3C3.875 1.344 5.219 0 6.875 0H9.875V6H6.875C5.219 6 3.875 4.656 3.875 3Z" fill="#F24E1E"></path>
-              <path d="M9.87501 0H12.875C14.531 0 15.875 1.344 15.875 3C15.875 4.656 14.531 6 12.875 6H9.87501V0Z" fill="#FF7262"></path>
-              <path d="M15.875 9C15.875 10.656 14.531 12 12.875 12C11.219 12 9.87501 10.656 9.87501 9C9.87501 7.344 11.219 6 12.875 6C14.531 6 15.875 7.344 15.875 9Z" fill="#1ABCFE"></path>
-            </svg>
-            Preline Figma
-          </a>
-        </div>
-        <!-- End Buttons -->
-      </div>
-    </div>
-  </div>
-</div>
-<!-- End Hero -->
-<div class="container mx-auto">
-  <div class="flex flex-row justify-end space-x-2.5">
-    <div class="w-3/4">
-      <div class="flex flex-row space-x-2.5">
-        <div class="w-2/3 bg-gray-50 border border-gray-100 rounded p-5">Container 1</div>
-        <div class="w-1/3 bg-gray-50 border border-gray-100 rounded p-5">Container 2</div>
-      </div>
-      <div class="flex flex-row">
-        <ul class="tabs">
-          <li>Tab 1</li>
-          <li>Tab 2</li>
-          <li>Tab 3</li>
-        </ul>
-      </div>
-    </div>
-    <div class="w-1/4 sticky top-0 bg-gray-50 border border-gray-100 rounded p-5">Sidebar</div>
-  </div>
-</div>
+									<?php
+								}
+								wp_reset_postdata();
+								?>
+							</div>
 
 
+						</div>
+
+					</li>
+					<li class="text-xs font-semibold text-gray-800 truncate dark:text-gray-200" aria-current="page">
+						<?php echo get_the_title(); ?>
+					</li>
+				</ol>
+
+			</div>
+			<div>
+				<select id="viewSelect" onchange="setViewCookie()"
+					class="py-1 px-2 pr-3 block w-[120px] z-50 border-gray-200 rounded-md text-xs focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+					<option <?php if ( $view == 'Staff View' )
+						echo 'selected'; ?>>Staff View</option>
+					<option <?php if ( $view == 'Partner View' )
+						echo 'selected'; ?>>Partner View</option>
+					<option <?php if ( $view == 'Public View' )
+						echo 'selected'; ?>>Public View</option>
+				</select>
+			</div>
+		</div>
+	<?php endif; ?>
+
+	<?php include 'program/program-hero.php'; ?>
+
+	<div class=" px-8 pb-20 min-h-screen">
+		<?php
+		if ( ! is_user_logged_in() ) {
+			include 'program/program-publicview.php';
+		} elseif ( $view == 'Staff View' ) {
+			include 'program/program-staff.php';
+		} elseif ( $view == 'Partner View' ) {
+			include 'program/program-partner.php';
+		} else {
+			include 'program/program-publicview.php';
+		}
+		?>
+	</div>
 
 
-</article><!-- #post-${ID} -->
+</article>
+<script>
+
+	function setViewCookie() {
+		var view = document.getElementById('viewSelect').value;
+		document.cookie = "view=" + view + ";path=/";
+		location.reload();
+	}
+
+
+
+	var dropdownButton = document.getElementById('hs-dropdown-left-but-right-on-lg');
+	var dropdownMenu = document.getElementById('dropdown-menu');
+
+	function toggleDropdown() {
+		if (dropdownMenu.classList.contains('hidden')) {
+			dropdownMenu.classList.remove('hidden');
+			dropdownMenu.classList.add('block');
+		} else {
+			dropdownMenu.classList.add('hidden');
+			dropdownMenu.classList.remove('block');
+		}
+	};
+
+	// Add an event listener to the document
+	document.addEventListener('click', function (event) {
+		var isClickInsideButton = dropdownButton.contains(event.target);
+		var isClickInsideMenu = dropdownMenu.contains(event.target);
+
+		if (!isClickInsideButton && !isClickInsideMenu) {
+			// The click was outside the dropdown button and menu, close it!
+			dropdownMenu.classList.add('hidden');
+			dropdownMenu.classList.remove('block');
+		}
+	});
+</script>

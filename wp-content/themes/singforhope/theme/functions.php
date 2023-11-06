@@ -128,13 +128,13 @@ add_action( 'after_setup_theme', 'sfh_setup' );
 function sfh_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => __( 'Footer', 'singforhope' ),
-			'id'            => 'sidebar-1',
-			'description'   => __( 'Add widgets here to appear in your footer.', 'singforhope' ),
+			'name' => __( 'Footer', 'singforhope' ),
+			'id' => 'sidebar-1',
+			'description' => __( 'Add widgets here to appear in your footer.', 'singforhope' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'after_widget' => '</section>',
+			'before_title' => '<h2 class="widget-title">',
+			'after_title' => '</h2>',
 		)
 	);
 }
@@ -224,79 +224,100 @@ require get_template_directory() . '/inc/template-functions.php';
 /**
  * Totally disable the admin toolbar. 
  */
-function papumayor_disable_admin_bar() {
-	return false;
-}
-add_filter('show_admin_bar', 'papumayor_disable_admin_bar');
+add_filter( 'show_admin_bar', '__return_false' );
+
+
 /**
  * Create pages and set their templates.
  */
 function setup_pages() {
 	$pages = array(
-		'Home' => 'pages/homepage.php',
-		'About' => 'pages/about.php',
-		'Donate' => 'pages/donate.php',
-		'Contact' => 'pages/contact.php',
-		'Volunteer' => 'pages/volunteer.php',
-		'Sponsor' => 'pages/sponsor.php',
-		'Login' => 'pages/login.php',
-		'Health' => 'pages/health.php',
-		'Education' => 'pages/education.php',
-		'Workforce' => 'pages/workforce.php',
-		'Pianos' => 'pages/pianos.php',
-		'Diplomacy' => 'pages/diplomacy.php',
-		'Gifts' => 'pages/gifts.php',
+		'Home' => 'pages/home/home.php',
+		'About' => 'pages/about/about.php',
+		'Donate' => 'pages/donate/donate.php',
+		'Contact' => 'pages/contact/contact.php',
+		'Volunteer' => 'pages/volunteer/volunteer.php',
+		'Sponsor' => 'pages/sponsor/sponsor.php',
+		'Login' => 'pages/login/login.php',
+		'Health' => 'pages/health/health.php',
+		'Education' => 'pages/education/education.php',
+		'Workforce' => 'pages/workforce/workforce.php',
+		'Pianos' => 'pages/pianos/pianos.php',
+		'Diplomacy' => 'pages/diplomacy/diplomacy.php',
+		'Gifts' => 'pages/gifts/gifts.php',
+		'App' => 'app/app.php',
 	);
 
-	foreach ($pages as $page_title => $template) {
+	foreach ( $pages as $page_title => $template ) {
 		// Check if the page exists by title
-		$existing_page = get_page_by_title($page_title);
+		$args = array(
+			'post_type' => 'page',
+			'name' => sanitize_title( $page_title ),
+		);
 
-		if (null == $existing_page) {
+		$query = new WP_Query( $args );
+
+		if ( $query->have_posts() ) {
+			while ( $query->have_posts() ) {
+				$query->the_post();
+				$existing_page = get_post();
+			}
+		} else {
+			// No page found with this title.
+		}
+
+		wp_reset_postdata(); // Always reset after a custom query.
+
+		if ( null == $existing_page ) {
 			// Create the page
-			$page_id = wp_insert_post(array(
-				'post_title'     => $page_title,
-				'post_type'      => 'page',
-				'post_status'    => 'publish',
-			));
+			$page_id = wp_insert_post(
+				array(
+					'post_title' => $page_title,
+					'post_type' => 'page',
+					'post_status' => 'publish',
+				)
+			);
 
 			// Error handling for wp_insert_post
-			if (is_wp_error($page_id)) {
-				error_log('Failed to insert new page: ' . $page_id->get_error_message());
+			if ( is_wp_error( $page_id ) ) {
+				error_log( 'Failed to insert new page: ' . $page_id->get_error_message() );
 				continue;
 			}
 
 			// Set the custom template for the new page
-			if ($template && file_exists(get_template_directory() . '/' . $template)) {
-				update_post_meta($page_id, '_wp_page_template', $template);
-			} else if ($template) {
-				error_log("Template file $template not found");
+			if ( $template && file_exists( get_template_directory() . '/' . $template ) ) {
+				update_post_meta( $page_id, '_wp_page_template', $template );
+			} else if ( $template ) {
+				error_log( "Template file $template not found" );
 			}
-			
+
 			// Set the Home page as the static front page
-			if ($page_title === 'Home') {
-				update_option('show_on_front', 'page');
-				update_option('page_on_front', $page_id);
+			if ( $page_title === 'Home' ) {
+				update_option( 'show_on_front', 'page' );
+				update_option( 'page_on_front', $page_id );
 			}
+
+
 		} else {
 			// If the page already exists, just set the custom template
-			if ($template && file_exists(get_template_directory() . '/' . $template)) {
-				update_post_meta($existing_page->ID, '_wp_page_template', $template);
-			} else if ($template) {
-				error_log("Template file $template not found");
+			if ( $template && file_exists( get_template_directory() . '/' . $template ) ) {
+				update_post_meta( $existing_page->ID, '_wp_page_template', $template );
+			} else if ( $template ) {
+				error_log( "Template file $template not found" );
 			}
-			
+
 			// Set the existing Home page as the static front page
-			if ($page_title === 'Home') {
-				update_option('show_on_front', 'page');
-				update_option('page_on_front', $existing_page->ID);
+			if ( $page_title === 'Home' ) {
+				update_option( 'show_on_front', 'page' );
+				update_option( 'page_on_front', $existing_page->ID );
 			}
+
 		}
 	}
 }
-add_action('after_setup_theme', 'setup_pages');
+add_action( 'after_setup_theme', 'setup_pages' );
 
-function disable_gutenberg_on_specific_pages($can_edit, $post) {
+function disable_gutenberg_on_specific_pages( $can_edit, $post ) {
 	// Pages where Gutenberg should be disabled
 	$pages = array(
 		'Home',
@@ -315,18 +336,18 @@ function disable_gutenberg_on_specific_pages($can_edit, $post) {
 	);
 
 	// Check if the current page is in the list
-	if ($post && 'page' === $post->post_type && in_array($post->post_title, $pages)) {
+	if ( $post && 'page' === $post->post_type && in_array( $post->post_title, $pages ) ) {
 		// Disable Gutenberg
 		$can_edit = false;
 	}
 
 	return $can_edit;
 }
-add_filter('use_block_editor_for_post', 'disable_gutenberg_on_specific_pages', 10, 2);
+add_filter( 'use_block_editor_for_post', 'disable_gutenberg_on_specific_pages', 10, 2 );
 
 // Hide classic content editor
 function hide_postdivrich() {
-    echo '
+	echo '
     <style type="text/css">
         #postdivrich {
             display: none;
@@ -334,4 +355,292 @@ function hide_postdivrich() {
     </style>
     ';
 }
-add_action('admin_head', 'hide_postdivrich');
+add_action( 'admin_head', 'hide_postdivrich' );
+
+// Register AJAX endpoint for deleting the entry
+add_action( 'wp_ajax_delete_entry', 'delete_entry_callback' );
+add_action( 'wp_ajax_nopriv_delete_entry', 'delete_entry_callback' );
+function delete_entry_callback() {
+	if ( isset( $_POST['index'] ) ) {
+		$index = $_POST['index'];
+
+		// Retrieve the existing invited_artists data
+		$invited_artists = get_field( 'invited_artists' );
+
+		// Check if the index is within the valid range
+		if ( $index >= 0 && $index < count( $invited_artists ) ) {
+			// Remove the entry at the specified index
+			array_splice( $invited_artists, $index, 1 );
+
+			// Update the invited_artists field with the modified data
+			update_field( 'invited_artists', $invited_artists );
+
+			// Send a success response
+			echo 'success';
+		} else {
+			// If the index is out of range, send an error response
+			echo 'error';
+		}
+	} else {
+		// If the index is not provided, send an error response
+		echo 'error';
+	}
+	wp_die();
+}
+
+// Disable support for comments and pingbacks in post types
+function disable_comments_post_types_support() {
+	$post_types = get_post_types();
+	foreach ( $post_types as $post_type ) {
+		if ( post_type_supports( $post_type, 'comments' ) ) {
+			remove_post_type_support( $post_type, 'comments' );
+			remove_post_type_support( $post_type, 'trackbacks' );
+		}
+	}
+}
+add_action( 'admin_init', 'disable_comments_post_types_support' );
+
+// Close comments on the front-end
+function disable_comments_status() {
+	return false;
+}
+add_filter( 'comments_open', 'disable_comments_status', 20, 2 );
+add_filter( 'pings_open', 'disable_comments_status', 20, 2 );
+
+// Hide existing comments
+function disable_comments_hide_existing_comments( $comments ) {
+	$comments = array();
+	return $comments;
+}
+add_filter( 'comments_array', 'disable_comments_hide_existing_comments', 10, 2 );
+
+// Remove comments page in menu
+function disable_comments_admin_menu() {
+	remove_menu_page( 'edit-comments.php' );
+}
+add_action( 'admin_menu', 'disable_comments_admin_menu' );
+
+// Redirect any user trying to access comments page
+function disable_comments_admin_menu_redirect() {
+	global $pagenow;
+	if ( $pagenow === 'edit-comments.php' ) {
+		wp_redirect( admin_url() );
+		exit;
+	}
+}
+add_action( 'admin_init', 'disable_comments_admin_menu_redirect' );
+
+// Remove comments metabox from dashboard
+function disable_comments_dashboard() {
+	remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'normal' );
+}
+add_action( 'admin_init', 'disable_comments_dashboard' );
+
+// Remove comments links from admin bar
+function disable_comments_admin_bar() {
+	if ( is_admin_bar_showing() ) {
+		global $wp_admin_bar;
+		$wp_admin_bar->remove_menu( 'comments' );
+	}
+}
+add_action( 'admin_init', 'disable_comments_admin_bar' );
+
+
+function remove_all_dashboard_widgets() {
+	global $wp_meta_boxes;
+	foreach ( array_keys( $wp_meta_boxes['dashboard'] ) as $context ) {
+		foreach ( array_keys( $wp_meta_boxes['dashboard'][ $context ] ) as $priority ) {
+			foreach ( array_keys( $wp_meta_boxes['dashboard'][ $context ][ $priority ] ) as $widget ) {
+				remove_meta_box( $widget, 'dashboard', $context );
+			}
+		}
+	}
+}
+add_action( 'wp_dashboard_setup', 'remove_all_dashboard_widgets', 9999 );
+
+add_action( 'wp_ajax_get_pianos', 'get_pianos' );
+add_action( 'wp_ajax_nopriv_get_pianos', 'get_pianos' );
+
+function get_pianos() {
+	$search_text = $_POST['search_text'];
+	$args = array(
+		'post_type' => 'piano',
+		'posts_per_page' => 12,
+		's' => $search_text,
+		'meta_query' => array(
+			'relation' => 'OR',
+			array(
+				'key' => 'artist_name',
+				'value' => $search_text,
+				'compare' => 'LIKE'
+			)
+		)
+	);
+	$the_query = new WP_Query( $args );
+	while ( $the_query->have_posts() ) :
+		$the_query->the_post();
+		// Output the HTML for each piano here
+	endwhile;
+	wp_reset_postdata();
+	die();
+}
+
+function acf_mapbox_api( $api ) {
+
+	$api['key'] = 'pk.eyJ1Ijoic2ZoYWRtaW4iLCJhIjoiY2t6bWZoemliMXBmbDJucGFjcHBqcGNpeiJ9.hTActdDjpLc-9IEf-EPnPA'; // Please obtain an access token from your Mapbox account and replace the dummy value
+	return $api;
+
+}
+add_filter( 'acf/fields/mapbox/api', 'acf_mapbox_api' );
+
+function add_custom_roles() {
+	// Get the capabilities of 'subscriber'
+	$subscriber = get_role( 'subscriber' );
+	$subscriber_caps = $subscriber->capabilities;
+
+	// Add new roles with 'subscriber' capabilities
+	add_role( 'artist', __( 'Artist' ), $subscriber_caps );
+	add_role( 'partner', __( 'Partner' ), $subscriber_caps );
+	add_role( 'staff', __( 'Staff' ), $subscriber_caps );
+	add_role( 'adjudicator', __( 'Adjudicator' ), $subscriber_caps );
+}
+add_action( 'init', 'add_custom_roles' );
+
+function hide_all_admin_notices() {
+	remove_all_actions( 'admin_notices' );
+}
+add_action( 'admin_print_scripts', 'hide_all_admin_notices' );
+
+function register_user() {
+	// Check if email exists
+	$email_exists = email_exists( $_POST['hs_work_email_hire_us_1'] );
+
+	if ( ! $email_exists ) {
+		// Generate a random password.
+		$random_password = wp_generate_password();
+
+		// Register user with email as username
+		$user_id = wp_create_user( $_POST['hs_work_email_hire_us_1'], $random_password, $_POST['hs_work_email_hire_us_1'] );
+
+		// Set the new user's role as "artist"
+		$user = new WP_User( $user_id );
+		$user->set_role( 'artist' );
+
+		// Set the user first name and last name and the Artist name as the display name.
+		wp_update_user(
+			array(
+				'ID' => $user_id,
+				'first_name' => $_POST['hs_firstname_hire_us_1'],
+				'last_name' => $_POST['hs_lastname_hire_us_1'],
+				'display_name' => $_POST['hs_firstname_hire_us_1'] . ' ' . $_POST['hs_lastname_hire_us_1']
+			)
+		);
+
+		// Log in user
+		wp_set_auth_cookie( $user_id );
+
+		// Send JSON response
+		wp_send_json_success();
+		exit;
+	} else {
+		// Email already exists, ask for password to login.
+		wp_send_json_error( 'Email already exists' );
+		exit;
+	}
+}
+add_action( 'wp_ajax_register_user', 'register_user' );
+add_action( 'wp_ajax_nopriv_register_user', 'register_user' );
+
+
+
+// Function to check for upcoming scheduled emails and send them
+function send_scheduled_invites() {
+	// Get today's date
+	$today = date( 'Y-m-d H:i:s' );
+
+	// Query 'program' posts
+	$args = [ 
+		'post_type' => 'program',
+		'posts_per_page' => -1, // You might want to limit this and run the cron more frequently
+	];
+
+	$programs = new WP_Query( $args );
+
+	if ( $programs->have_posts() ) {
+		while ( $programs->have_posts() ) {
+			$programs->the_post();
+			$post_id = get_the_ID();
+
+			// Check if there are 'invite_emails' for this program
+			if ( have_rows( 'invite_emails', $post_id ) ) {
+				while ( have_rows( 'invite_emails', $post_id ) ) {
+					the_row();
+					$email_subject = get_sub_field( 'email_subject' );
+					$email_body = get_sub_field( 'email_body' );
+					$email_datetime = get_sub_field( 'email_datetime' );
+
+					// Check if the email_datetime is set for the next day
+					if ( $email_datetime && strtotime( $email_datetime ) > strtotime( $today ) && strtotime( $email_datetime ) < strtotime( '+1 day', strtotime( $today ) ) ) {
+						// Check 'invited_artists' and send them the email
+						if ( have_rows( 'invited_artists', $post_id ) ) {
+							while ( have_rows( 'invited_artists', $post_id ) ) {
+								the_row();
+								$artist_email = get_sub_field( 'invited_artist_email' );
+
+								// Send the email
+								if ( is_email( $artist_email ) ) {
+									wp_mail( $artist_email, $email_subject, $email_body );
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		wp_reset_postdata();
+	}
+}
+
+// Hook to schedule the email sending
+function schedule_email_sending() {
+	if ( ! wp_next_scheduled( 'send_scheduled_invites_hook' ) ) {
+		wp_schedule_event( time(), 'hourly', 'send_scheduled_invites_hook' );
+	}
+}
+add_action( 'wp', 'schedule_email_sending' );
+
+// Action hook for the cron job to send the scheduled emails
+add_action( 'send_scheduled_invites_hook', 'send_scheduled_invites' );
+
+// Optional: Function to clear the scheduled hook on deactivation
+function clear_scheduled_email_sending() {
+	$timestamp = wp_next_scheduled( 'send_scheduled_invites_hook' );
+	wp_unschedule_event( $timestamp, 'send_scheduled_invites_hook' );
+}
+register_deactivation_hook( __FILE__, 'clear_scheduled_email_sending' );
+
+
+function fetch_piano_content() {
+	$post_id = $_POST['post_id'];
+	$post = get_post( $post_id );
+	echo apply_filters( 'the_content', $post->post_content );
+	die();
+}
+add_action( 'wp_ajax_fetch_piano_content', 'fetch_piano_content' );
+add_action( 'wp_ajax_nopriv_fetch_piano_content', 'fetch_piano_content' );
+
+
+function add_data_email_log() {
+	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+
+	global $wpdb;
+	$table_name = $wpdb->prefix . 'wpmailsmtp_emails_log';
+
+	$sql = "ALTER TABLE $table_name ADD COLUMN context column_definition";
+
+	dbDelta( $sql );
+}
+
+add_data_email_log(); // Call the function
+
+remove_action( 'wp_head', 'wp_generator' );

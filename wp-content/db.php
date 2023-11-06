@@ -1,0 +1,1 @@
+/Users/jh/Local Sites/sfhtw/app/public/wp-content/plugins/query-monitor/wp-content/db.php

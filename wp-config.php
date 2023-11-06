@@ -83,19 +83,18 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-if ( ! defined( 'WP_DEBUG' ) ) {
-	define( 'WP_DEBUG', false );
-}
+define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_LOG', false );
 
 
-define('AUTH_KEY',         'WW9Z9fM/MnN+UplJVsVWoEEeLccTAo1VZNRwuX5qSYlSFuAt3nk4EHecEmStzrNQtL7uc8QDBCHs9engbubgzA==');
-define('SECURE_AUTH_KEY',  '79SWkZirVx+WSq/SM4hLxkSspQrQwCZT1cBQ9hnfU6locERWqWf6w7oUH0dt8xBju5oH6V8Y6ToCjfcFOx6PEw==');
-define('LOGGED_IN_KEY',    'nkc4L5WE4tFIWwTe6RZ5NYZJzD6CaLxWxazDe0z0NSXGvM3pusSpbFeUZZgKW/ImIStGnNw6e8IN+BnVexax+w==');
-define('NONCE_KEY',        'GWfC7pPu/WfSbiAH98j5KDx9emUpdFPB/BPTc5ioH2fgFXqB8aLMcbJ3V7mN/a4QJOSS2OA/X3PEXa8YNAVoAA==');
-define('AUTH_SALT',        'omyanO30B2H4aInlK561G1Q1ZtUTOlhbtN3TGsBMrwbALikJFfclFDT7sVeWemxptli5R9w1W8Aj69CjdDkFpA==');
-define('SECURE_AUTH_SALT', 'fRBeZT6c6J2QOxQtZ+rpErdi3uac4PCn4BYaZ/3FOKLv2X3xYTP3yj/EFfWnPB016GOzjsqYbUE//Fgw8PSGFA==');
-define('LOGGED_IN_SALT',   'wwY4DAkt+kHRxGU+qkQo31fBowYLETaVNcSQ6KpZRKAtXSsyYQ9y8XZL9s0gvg+KC0spwz8bHF2qIlbFM1ICAA==');
-define('NONCE_SALT',       '/5P8iWyDEwvCSXroEaY/QUeewoX4ssEJhZO7yo5330LXDOEl3LqrPDsBaHD3820lERjkpxeWMwhJZCZ1jyZatA==');
+define( 'AUTH_KEY', 'WW9Z9fM/MnN+UplJVsVWoEEeLccTAo1VZNRwuX5qSYlSFuAt3nk4EHecEmStzrNQtL7uc8QDBCHs9engbubgzA==' );
+define( 'SECURE_AUTH_KEY', '79SWkZirVx+WSq/SM4hLxkSspQrQwCZT1cBQ9hnfU6locERWqWf6w7oUH0dt8xBju5oH6V8Y6ToCjfcFOx6PEw==' );
+define( 'LOGGED_IN_KEY', 'nkc4L5WE4tFIWwTe6RZ5NYZJzD6CaLxWxazDe0z0NSXGvM3pusSpbFeUZZgKW/ImIStGnNw6e8IN+BnVexax+w==' );
+define( 'NONCE_KEY', 'GWfC7pPu/WfSbiAH98j5KDx9emUpdFPB/BPTc5ioH2fgFXqB8aLMcbJ3V7mN/a4QJOSS2OA/X3PEXa8YNAVoAA==' );
+define( 'AUTH_SALT', 'omyanO30B2H4aInlK561G1Q1ZtUTOlhbtN3TGsBMrwbALikJFfclFDT7sVeWemxptli5R9w1W8Aj69CjdDkFpA==' );
+define( 'SECURE_AUTH_SALT', 'fRBeZT6c6J2QOxQtZ+rpErdi3uac4PCn4BYaZ/3FOKLv2X3xYTP3yj/EFfWnPB016GOzjsqYbUE//Fgw8PSGFA==' );
+define( 'LOGGED_IN_SALT', 'wwY4DAkt+kHRxGU+qkQo31fBowYLETaVNcSQ6KpZRKAtXSsyYQ9y8XZL9s0gvg+KC0spwz8bHF2qIlbFM1ICAA==' );
+define( 'NONCE_SALT', '/5P8iWyDEwvCSXroEaY/QUeewoX4ssEJhZO7yo5330LXDOEl3LqrPDsBaHD3820lERjkpxeWMwhJZCZ1jyZatA==' );
 define( 'WP_ENVIRONMENT_TYPE', 'local' );
 /* That's all, stop editing! Happy publishing. */
 

@@ -13,7 +13,8 @@ module.exports = {
 		// Ensure changes to PHP files and `theme.json` trigger a rebuild.
 		'./theme/**/*.php',
 		'./theme/theme.json',
-		'node_modules/preline/dist/*.js',
+		'wp-content/themes/singforhope/node_modules/preline/dist/preline.js',
+		'wp-content/themes/singforhope/node_modules/flowbite/**/*.js',
 	],
 	safelist: [
 		'w-64',
@@ -27,11 +28,18 @@ module.exports = {
 		'leading-6',
 		'h-9',
 		'leading-9',
-		'shadow-lg'
-	  ],
+		'shadow-lg',
+	],
 	theme: {
 		// Extend the default Tailwind theme.
 		extend: {
+			transitionDelay: {
+				0: '0ms',
+				2000: '2000ms',
+			},
+			borderRadius: {
+				DEFAULT: '8px',
+			},
 			colors: {
 				harmony: '#339933',
 				harmonylight: '#EFFEEF',
@@ -52,16 +60,38 @@ module.exports = {
 				lightbg: '#f9fafb',
 			},
 			fontFamily: {
-				'sans': ['Inter', 'system-ui', 'BlinkMacSystemFont', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
-				'montserrat': ['Montserrat', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
+				sans: [
+					'Inter',
+					'system-ui',
+					'BlinkMacSystemFont',
+					'-apple-system',
+					'Segoe UI',
+					'Roboto',
+					'Helvetica Neue',
+					'Arial',
+					'Noto Sans',
+					'sans-serif',
+					'Apple Color Emoji',
+					'Segoe UI Emoji',
+					'Segoe UI Symbol',
+					'Noto Color Emoji',
+				],
+				montserrat: [
+					'Montserrat',
+					'Georgia',
+					'Cambria',
+					'Times New Roman',
+					'Times',
+					'serif',
+				],
 			},
 			minHeight: {
 				'5px': '5px',
 			},
 			width: {
-				'82': '82px',
-				'72': '74px',
-			}
+				82: '82px',
+				72: '74px',
+			},
 		},
 	},
 	corePlugins: {
@@ -76,11 +106,12 @@ module.exports = {
 		require('@tailwindcss/typography'),
 
 		// Uncomment below to add additional first-party Tailwind plugins.
-		// require('@tailwindcss/forms'),
-		// require('@tailwindcss/aspect-ratio'),
-		// require('@tailwindcss/container-queries'),
+		require('@tailwindcss/forms'),
+		require('@tailwindcss/aspect-ratio'),
+		require('@tailwindcss/container-queries'),
 
 		require('preline/plugin'),
 
+		require('flowbite/plugin'),
 	],
 };

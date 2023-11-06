@@ -13,7 +13,12 @@ module.exports = {
 		// Ensure changes to PHP files and `theme.json` trigger a rebuild.
 		'./theme/**/*.php',
 		'./theme/theme.json',
+<<<<<<< HEAD
 		'node_modules/preline/dist/*.js',
+=======
+		'wp-content/themes/singforhope/node_modules/preline/dist/preline.js',
+		'wp-content/themes/singforhope/node_modules/flowbite/**/*.js',
+>>>>>>> master
 	],
 	safelist: [
 		'w-64',
@@ -27,11 +32,26 @@ module.exports = {
 		'leading-6',
 		'h-9',
 		'leading-9',
+<<<<<<< HEAD
 		'shadow-lg'
 	  ],
 	theme: {
 		// Extend the default Tailwind theme.
 		extend: {
+=======
+		'shadow-lg',
+	],
+	theme: {
+		// Extend the default Tailwind theme.
+		extend: {
+			transitionDelay: {
+				0: '0ms',
+				2000: '2000ms',
+			},
+			borderRadius: {
+				DEFAULT: '8px',
+			},
+>>>>>>> master
 			colors: {
 				harmony: '#339933',
 				harmonylight: '#EFFEEF',
@@ -52,16 +72,49 @@ module.exports = {
 				lightbg: '#f9fafb',
 			},
 			fontFamily: {
+<<<<<<< HEAD
 				'sans': ['Inter', 'system-ui', 'BlinkMacSystemFont', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
 				'montserrat': ['Montserrat', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
+=======
+				sans: [
+					'Inter',
+					'system-ui',
+					'BlinkMacSystemFont',
+					'-apple-system',
+					'Segoe UI',
+					'Roboto',
+					'Helvetica Neue',
+					'Arial',
+					'Noto Sans',
+					'sans-serif',
+					'Apple Color Emoji',
+					'Segoe UI Emoji',
+					'Segoe UI Symbol',
+					'Noto Color Emoji',
+				],
+				montserrat: [
+					'Montserrat',
+					'Georgia',
+					'Cambria',
+					'Times New Roman',
+					'Times',
+					'serif',
+				],
+>>>>>>> master
 			},
 			minHeight: {
 				'5px': '5px',
 			},
 			width: {
+<<<<<<< HEAD
 				'82': '82px',
 				'72': '74px',
 			}
+=======
+				82: '82px',
+				72: '74px',
+			},
+>>>>>>> master
 		},
 	},
 	corePlugins: {
@@ -76,11 +129,21 @@ module.exports = {
 		require('@tailwindcss/typography'),
 
 		// Uncomment below to add additional first-party Tailwind plugins.
+<<<<<<< HEAD
 		// require('@tailwindcss/forms'),
 		// require('@tailwindcss/aspect-ratio'),
 		// require('@tailwindcss/container-queries'),
 
 		require('preline/plugin'),
 
+=======
+		require('@tailwindcss/forms'),
+		require('@tailwindcss/aspect-ratio'),
+		require('@tailwindcss/container-queries'),
+
+		require('preline/plugin'),
+
+		require('flowbite/plugin'),
+>>>>>>> master
 	],
 };

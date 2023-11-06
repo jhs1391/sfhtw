@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Wordpress - ignore core, configuration, examples, uploads and logs.
 # https://github.com/github/gitignore/blob/main/WordPress.gitignore
 
@@ -46,3 +47,34 @@ wp-config.php
 # Note: If you wish to whitelist themes,
 # uncomment the next line
 #/wp-content/themes
+=======
+# Ignore WordPress core files & directories
+/wp-admin/
+/wp-includes/
+/wp-content/uploads/
+
+# Ignore root level files
+/index.php
+/license.txt
+/local-xdebuginfo.php
+/readme.html
+/wp-activate.php
+/wp-blog-header.php
+/wp-comments-post.php
+/wp-config-sample.php
+/wp-cron.php
+/wp-links-opml.php
+
+# Ignore other common files
+*.log
+
+
+# Ignore IDE specific files
+.idea/
+*.iml
+.vscode/
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+>>>>>>> master

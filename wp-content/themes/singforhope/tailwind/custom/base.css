@@ -1,0 +1,163 @@
+/**
+ * Custom styles to immediately follow Tailwind’s `base` layer
+ *
+ * “Add things like base typography styles [or] opinionated global resets.”
+ *
+ * — from https://tailwindcss.com/docs/plugins#adding-base-styles
+ */
+
+/**
+ * This uses the background and foreground colors declared in the
+ * `theme.json` file and is applied both to the frontend and in the block
+ * editor.
+*/
+body {
+	@apply bg-background text-foreground font-sans;
+	min-height: 100vh;
+}
+
+footer {
+	margin-top: auto;
+}
+
+.editor-styles-wrapper
+	.edit-post-visual-editor__post-title-wrapper
+	> :where(:not(.alignleft):not(.alignright):not(.alignfull)),
+.editor-styles-wrapper
+	.block-editor-block-list__layout.is-root-container
+	> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+	max-width: 100% !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+.acf-row-number {
+	display: none !important;
+}
+
+/* Remove all borders on the table */
+.acf-repeater .acf-table {
+	border: none !important;
+}
+
+/* Remove background color on row handle */
+.acf-repeater .acf-row-handle.order {
+	background-color: transparent !important;
+}
+
+/* Remove left border on first cell of each row in block and row layout */
+.acf-repeater.-block > .acf-table > tbody > tr > td:first-of-type,
+.acf-repeater.-row > .acf-table > tbody > tr > td:first-of-type {
+	border-left: none !important;
+}
+
+/* Remove all borders on all cells in the table */
+.acf-repeater .acf-table > tbody > tr > td {
+	border: none !important;
+}
+
+/* Remove right border on last cell of each row in block and row layout */
+.acf-repeater.-block > .acf-table > tbody > tr > td:last-of-type,
+.acf-repeater.-row > .acf-table > tbody > tr > td:last-of-type {
+	border-right: none !important;
+}
+
+/* Remove background color from all cells in the table */
+.acf-repeater .acf-table > tbody > tr > td {
+	background-color: transparent !important;
+}
+
+/* Remove background color from add row button */
+.acf-repeater .acf-actions .button {
+	background-color: transparent !important;
+	color: #000 !important; /* Change the text color to black for visibility */
+}
+
+.acf-fields > .acf-field {
+	padding: 10px 0px !important;
+}
+
+.acf-button {
+	padding: 10px 20px;
+	border-radius: 8px;
+	background-color: #339933;
+	color: white !important;
+	font-size: 0.8em;
+	cursor: pointer;
+}
+
+.post-content p {
+	padding-top: 20px;
+}
+
+.post-content h2 {
+	font-size: 22px;
+}
+
+.gradient-overlay::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	height: 50%;
+	background: linear-gradient(
+		0deg,
+		rgba(0, 0, 0, 1) 0%,
+		rgba(0, 0, 0, 0) 100%
+	);
+	pointer-events: none;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+	position: relative !important;
+	top: 0 !important;
+	width: auto !important;
+	height: auto !important;
+	margin-top: 0px !important;
+	z-index: 10 !important;
+	cursor: pointer !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	color: #339933 !important;
+	left: auto !important;
+	margin-right: 5px;
+	right: auto !important;
+}
+.swiper-button-prev:after {
+	display: none !important;
+}
+.swiper-button-next:after {
+	display: none !important;
+}
+
+#algolia-powered-by {
+	display: none !important;
+}
+
+#algolia-search-box input {
+	border: none;
+	border-bottom: none !important;
+	border-radius: 30px;
+	width: 100%;
+	line-height: 30px;
+	font-size: 22px;
+	padding: 10px 20px 10px 50px !important;
+	font-weight: 500;
+	box-sizing: border-box;
+	outline: none;
+	box-shadow: none;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	background: #f4f4f4 !important;
+}
+.algolia-search-box-wrapper .search-icon {
+	position: absolute;
+	left: 20px !important;
+	top: 14px;
+	fill: #339933 !important;
+}

@@ -143,7 +143,7 @@ $user_avatar = get_field( 'user_profile_picture', 'user_' . $current_user->ID );
 
 						<a class="text-sm text-gray-600 hover:text-harmony" href="/news">News</a>
 
-
+						<a class="text-sm text-gray-600 hover:text-harmony" href="#">Jessney</a>
 					</div>
 				</div>
 			</nav>

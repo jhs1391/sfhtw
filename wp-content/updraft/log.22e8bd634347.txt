@@ -1,0 +1,202 @@
+0000.000 (0) Opened log file at time: Tue, 31 Oct 2023 05:28:46 +0000 on https://sfhtw.local
+0000.001 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.23.10 WP: 6.3.2 PHP: 8.1.23 (fpm-fcgi, Darwin Javiers-MacBook-Pro.local 22.5.0 Darwin Kernel Version 22.5.0: Thu Jun  8 22:22:19 PDT 2023; root:xnu-8796.121.3~7/RELEASE_ARM64_T8103 arm64) MySQL: 8.0.16 (max packet size=16777216) WPLANG: en_US Server: nginx/1.16.0 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 8.2M | 10M) multisite: N openssl: OpenSSL 1.1.1w  11 Sep 2023 mcrypt: N LANG:  ZipArchive::addFile: Y
+0000.001 (0) Free space on disk containing Updraft's temporary directory: 18525.3 MB
+0000.002 (0) Tasks: Backup files: 0 (schedule: unset) Backup DB: 1 (schedule: unset)
+0000.004 (0) Semaphore (d, wp_options) being initialised
+0000.006 (0) Requesting semaphore lock (d) (apparently not via scheduler)
+0000.009 (0) Set semaphore last lock (d) time to 2023-10-31 05:28:46
+0000.009 (0) Semaphore lock (d) complete
+0000.010 (0) Backup run: resumption=0, nonce=22e8bd634347, file_nonce=22e8bd634347 begun at=1698730126 (0s ago), job type=backup
+0000.011 (0) Scheduling a resumption (1) after 300 seconds (1698730426) in case this run gets aborted
+0000.025 (0) This backup run is not intended for files - skipping
+0000.025 (0) Beginning creation of database dump (WordPress DB)
+0000.025 (0) SQL compatibility mode is: NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
+0000.043 (0) Table wp_options: Total expected rows (via COUNT): 581
+0000.060 (0) Table wp_options: Rows added in this batch (next record: 10009): 577 (uncompressed bytes in this segment=603099) in 0.02 seconds
+0000.064 (0) Table wp_options: finishing file(s) (2, 118.1 KB)
+0000.068 (0) Table wp_users: Total expected rows (via COUNT): 10
+0000.069 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.070 (0) Table wp_users: Rows added in this batch (next record: 10): 10 (uncompressed bytes in this segment=2576) in 0.00 seconds
+0000.071 (0) Table wp_users: finishing file(s) (2, 1.1 KB)
+0000.074 (0) Table wp_usermeta: Total expected rows (via COUNT): 192
+0000.074 (0) Table is relatively small; fetch_rows will thus be: 250 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.076 (0) Table wp_usermeta: Rows added in this batch (next record: 196): 192 (uncompressed bytes in this segment=10395) in 0.00 seconds
+0000.078 (0) Table wp_usermeta: finishing file(s) (2, 3.1 KB)
+0000.081 (0) Table wp_commentmeta: Total expected rows (via COUNT): 0
+0000.082 (0) Table wp_commentmeta: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=685) in 0.00 seconds
+0000.084 (0) Table wp_commentmeta: finishing file(s) (2, 0.4 KB)
+0000.087 (0) Table wp_comments: Total expected rows (via COUNT): 0
+0000.087 (0) Table wp_comments: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1722) in 0.00 seconds
+0000.089 (0) Table wp_comments: finishing file(s) (2, 0.5 KB)
+0000.108 (0) Table wp_links: Total expected rows (via COUNT): 0
+0000.109 (0) Table wp_links: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1310) in 0.02 seconds
+0000.110 (0) Table wp_links: finishing file(s) (2, 0.5 KB)
+0000.149 (0) Table wp_postmeta: Total expected rows (approximate): 22415
+0000.243 (0) Table wp_postmeta: Rows added in this batch (next record: 58971): 22288 (uncompressed bytes in this segment=3924976) in 0.13 seconds
+0000.248 (0) Table wp_postmeta: finishing file(s) (2, 541.9 KB)
+0000.265 (0) Table wp_posts: Total expected rows (approximate): 4934
+0000.346 (0) Table wp_posts: Rows added in this batch (next record: 1253047): 5051 (uncompressed bytes in this segment=2556595) in 0.10 seconds
+0000.348 (0) Table wp_posts: finishing file(s) (2, 420.7 KB)
+0000.350 (0) Table wp_term_relationships: Total expected rows (approximate): 5
+0000.351 (0) Table wp_term_relationships: Rows added in this batch (next record: 100000): 5 (uncompressed bytes in this segment=776) in 0.00 seconds
+0000.352 (0) Table wp_term_relationships: finishing file(s) (2, 0.4 KB)
+0000.355 (0) Table wp_term_taxonomy: Total expected rows (via COUNT): 10
+0000.356 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.357 (0) Table wp_term_taxonomy: Rows added in this batch (next record: 10): 10 (uncompressed bytes in this segment=1209) in 0.00 seconds
+0000.358 (0) Table wp_term_taxonomy: finishing file(s) (2, 0.5 KB)
+0000.362 (0) Table wp_termmeta: Total expected rows (via COUNT): 0
+0000.363 (0) Table wp_termmeta: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=658) in 0.00 seconds
+0000.365 (0) Table wp_termmeta: finishing file(s) (2, 0.4 KB)
+0000.367 (0) Table wp_terms: Total expected rows (via COUNT): 10
+0000.367 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.367 (0) Table wp_terms: Rows added in this batch (next record: 10): 10 (uncompressed bytes in this segment=1046) in 0.00 seconds
+0000.369 (0) Table wp_terms: finishing file(s) (2, 0.6 KB)
+0000.374 (0) Table wp_digits_auth_devices: Total expected rows (via COUNT): 0
+0000.374 (0) Table wp_digits_auth_devices: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1115) in 0.00 seconds
+0000.376 (0) Table wp_digits_auth_devices: finishing file(s) (2, 0.5 KB)
+0000.379 (0) Table wp_digits_login_logs: Total expected rows (via COUNT): 3
+0000.379 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.380 (0) Table wp_digits_login_logs: Rows added in this batch (next record: 3): 3 (uncompressed bytes in this segment=1913) in 0.00 seconds
+0000.382 (0) Table wp_digits_login_logs: finishing file(s) (2, 0.8 KB)
+0000.384 (0) Table wp_digits_mobile_otp: Total expected rows (approximate): 0
+0000.385 (0) Table wp_digits_mobile_otp: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=638) in 0.00 seconds
+0000.387 (0) Table wp_digits_mobile_otp: finishing file(s) (2, 0.4 KB)
+0000.388 (0) Table wp_digits_otp: Total expected rows (via COUNT): 0
+0000.389 (0) Table wp_digits_otp: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1087) in 0.00 seconds
+0000.390 (0) Table wp_digits_otp: finishing file(s) (2, 0.5 KB)
+0000.393 (0) Table wp_digits_request_logs: Total expected rows (via COUNT): 0
+0000.393 (0) Table wp_digits_request_logs: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1210) in 0.00 seconds
+0000.394 (0) Table wp_digits_request_logs: finishing file(s) (2, 0.5 KB)
+0000.396 (0) Table wp_digits_user_session: Total expected rows (via COUNT): 2
+0000.397 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.398 (0) Table wp_digits_user_session: Rows added in this batch (next record: 8): 2 (uncompressed bytes in this segment=1579) in 0.00 seconds
+0000.399 (0) Table wp_digits_user_session: finishing file(s) (2, 0.7 KB)
+0000.402 (0) Table wp_iwp_sessions: Total expected rows (approximate): 2327
+0000.412 (0) Table wp_iwp_sessions: Rows added in this batch (next record: 2518): 2518 (uncompressed bytes in this segment=202009) in 0.01 seconds
+0000.414 (0) Table wp_iwp_sessions: finishing file(s) (2, 15.2 KB)
+0000.423 (0) Table wp_pmxi_files: Total expected rows (via COUNT): 2
+0000.424 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.425 (0) Table wp_pmxi_files: Rows added in this batch (next record: 4): 2 (uncompressed bytes in this segment=1157) in 0.01 seconds
+0000.426 (0) Table wp_pmxi_files: finishing file(s) (2, 0.5 KB)
+0000.429 (0) Table wp_pmxi_hash: Total expected rows (approximate): 0
+0000.431 (0) Table wp_pmxi_hash: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=553) in 0.00 seconds
+0000.433 (0) Table wp_pmxi_hash: finishing file(s) (2, 0.4 KB)
+0000.438 (0) Table wp_pmxi_history: Total expected rows (via COUNT): 2
+0000.438 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.439 (0) Table wp_pmxi_history: Rows added in this batch (next record: 2): 2 (uncompressed bytes in this segment=1001) in 0.00 seconds
+0000.441 (0) Table wp_pmxi_history: finishing file(s) (2, 0.5 KB)
+0000.445 (0) Table wp_pmxi_images: Total expected rows (via COUNT): 0
+0000.445 (0) Table wp_pmxi_images: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=631) in 0.00 seconds
+0000.447 (0) Table wp_pmxi_images: finishing file(s) (2, 0.4 KB)
+0000.452 (0) Table wp_pmxi_imports: Total expected rows (via COUNT): 2
+0000.452 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.453 (0) Table wp_pmxi_imports: Rows added in this batch (next record: 2): 2 (uncompressed bytes in this segment=20561) in 0.01 seconds
+0000.455 (0) Table wp_pmxi_imports: finishing file(s) (2, 3.5 KB)
+0000.458 (0) Table wp_pmxi_posts: Total expected rows (via COUNT): 0
+0000.459 (0) Table wp_pmxi_posts: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=719) in 0.00 seconds
+0000.460 (0) Table wp_pmxi_posts: finishing file(s) (2, 0.4 KB)
+0000.463 (0) Table wp_pmxi_templates: Total expected rows (via COUNT): 0
+0000.464 (0) Table wp_pmxi_templates: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=952) in 0.00 seconds
+0000.465 (0) Table wp_pmxi_templates: finishing file(s) (2, 0.4 KB)
+0000.470 (0) Table wp_wpdatacharts: Total expected rows (via COUNT): 0
+0000.470 (0) Table wp_wpdatacharts: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=600) in 0.00 seconds
+0000.471 (0) Table wp_wpdatacharts: finishing file(s) (2, 0.4 KB)
+0000.476 (0) Table wp_wpdatatables: Total expected rows (via COUNT): 2
+0000.476 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.477 (0) Table wp_wpdatatables: Rows added in this batch (next record: 2): 2 (uncompressed bytes in this segment=6812) in 0.00 seconds
+0000.478 (0) Table wp_wpdatatables: finishing file(s) (2, 1.6 KB)
+0000.482 (0) Table wp_wpdatatables_cache: Total expected rows (via COUNT): 0
+0000.483 (0) Table wp_wpdatatables_cache: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=708) in 0.00 seconds
+0000.484 (0) Table wp_wpdatatables_cache: finishing file(s) (2, 0.4 KB)
+0000.489 (0) Table wp_wpdatatables_columns: Total expected rows (via COUNT): 6
+0000.489 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.490 (0) Table wp_wpdatatables_columns: Rows added in this batch (next record: 6): 6 (uncompressed bytes in this segment=6930) in 0.00 seconds
+0000.491 (0) Table wp_wpdatatables_columns: finishing file(s) (2, 1.2 KB)
+0000.494 (0) Table wp_wpdatatables_rows: Total expected rows (via COUNT): 0
+0000.495 (0) Table wp_wpdatatables_rows: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=475) in 0.00 seconds
+0000.496 (0) Table wp_wpdatatables_rows: finishing file(s) (2, 0.3 KB)
+0000.497 (0) PHP event: code E_WARNING: filemtime(): stat failed for /Users/jh/Local Sites/sfhtw/app/public/wp-content/updraft/backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db.gz (line 1976, wp-content/plugins/updraftplus/backup.php)
+0000.497 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_options.table.tmpr10010.gz (1/31/fopen): adding to final database dump
+0000.498 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_options.table.gz (2/31/fopen): adding to final database dump
+0000.499 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_users.table.tmpr11.gz (3/31/fopen): adding to final database dump
+0000.499 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_users.table.gz (4/31/fopen): adding to final database dump
+0000.499 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_usermeta.table.tmpr197.gz (5/31/fopen): adding to final database dump
+0000.500 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_usermeta.table.gz (6/31/fopen): adding to final database dump
+0000.500 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_commentmeta.table.tmpr0.gz (7/31/fopen): adding to final database dump
+0000.501 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_commentmeta.table.gz (8/31/fopen): adding to final database dump
+0000.501 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_comments.table.tmpr0.gz (9/31/fopen): adding to final database dump
+0000.502 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_comments.table.gz (10/31/fopen): adding to final database dump
+0000.502 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_links.table.tmpr0.gz (11/31/fopen): adding to final database dump
+0000.503 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_links.table.gz (12/31/fopen): adding to final database dump
+0000.503 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_postmeta.table.tmpr58972.gz (13/31/fopen): adding to final database dump
+0000.507 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_postmeta.table.gz (14/31/fopen): adding to final database dump
+0000.508 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_posts.table.tmpr1253048.gz (15/31/fopen): adding to final database dump
+0000.512 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_posts.table.gz (16/31/fopen): adding to final database dump
+0000.512 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_term_relationships.table.tmpr100001.gz (17/31/fopen): adding to final database dump
+0000.512 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_term_relationships.table.gz (18/31/fopen): adding to final database dump
+0000.513 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_term_taxonomy.table.tmpr11.gz (19/31/fopen): adding to final database dump
+0000.513 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_term_taxonomy.table.gz (20/31/fopen): adding to final database dump
+0000.513 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_termmeta.table.tmpr0.gz (21/31/fopen): adding to final database dump
+0000.514 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_termmeta.table.gz (22/31/fopen): adding to final database dump
+0000.514 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_terms.table.tmpr11.gz (23/31/fopen): adding to final database dump
+0000.515 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_terms.table.gz (24/31/fopen): adding to final database dump
+0000.515 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_digits_auth_devices.table.tmpr0.gz (25/31/fopen): adding to final database dump
+0000.515 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_digits_auth_devices.table.gz (26/31/fopen): adding to final database dump
+0000.516 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_digits_login_logs.table.tmpr4.gz (27/31/fopen): adding to final database dump
+0000.516 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_digits_login_logs.table.gz (28/31/fopen): adding to final database dump
+0000.516 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_digits_mobile_otp.table.tmpr1.gz (29/31/fopen): adding to final database dump
+0000.517 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_digits_mobile_otp.table.gz (30/31/fopen): adding to final database dump
+0000.517 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_digits_otp.table.tmpr0.gz (31/31/fopen): adding to final database dump
+0000.517 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_digits_otp.table.gz (32/31/fopen): adding to final database dump
+0000.517 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_digits_request_logs.table.tmpr0.gz (33/31/fopen): adding to final database dump
+0000.518 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_digits_request_logs.table.gz (34/31/fopen): adding to final database dump
+0000.518 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_digits_user_session.table.tmpr9.gz (35/31/fopen): adding to final database dump
+0000.518 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_digits_user_session.table.gz (36/31/fopen): adding to final database dump
+0000.519 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_iwp_sessions.table.tmpr2519.gz (37/31/fopen): adding to final database dump
+0000.519 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_iwp_sessions.table.gz (38/31/fopen): adding to final database dump
+0000.519 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_pmxi_files.table.tmpr5.gz (39/31/fopen): adding to final database dump
+0000.520 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_pmxi_files.table.gz (40/31/fopen): adding to final database dump
+0000.520 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_pmxi_hash.table.tmpr1.gz (41/31/fopen): adding to final database dump
+0000.520 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_pmxi_hash.table.gz (42/31/fopen): adding to final database dump
+0000.521 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_pmxi_history.table.tmpr3.gz (43/31/fopen): adding to final database dump
+0000.521 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_pmxi_history.table.gz (44/31/fopen): adding to final database dump
+0000.522 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_pmxi_images.table.tmpr0.gz (45/31/fopen): adding to final database dump
+0000.522 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_pmxi_images.table.gz (46/31/fopen): adding to final database dump
+0000.522 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_pmxi_imports.table.tmpr3.gz (47/31/fopen): adding to final database dump
+0000.523 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_pmxi_imports.table.gz (48/31/fopen): adding to final database dump
+0000.523 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_pmxi_posts.table.tmpr0.gz (49/31/fopen): adding to final database dump
+0000.523 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_pmxi_posts.table.gz (50/31/fopen): adding to final database dump
+0000.523 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_pmxi_templates.table.tmpr0.gz (51/31/fopen): adding to final database dump
+0000.524 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_pmxi_templates.table.gz (52/31/fopen): adding to final database dump
+0000.524 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_wpdatacharts.table.tmpr0.gz (53/31/fopen): adding to final database dump
+0000.524 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_wpdatacharts.table.gz (54/31/fopen): adding to final database dump
+0000.525 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_wpdatatables.table.tmpr3.gz (55/31/fopen): adding to final database dump
+0000.525 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_wpdatatables.table.gz (56/31/fopen): adding to final database dump
+0000.525 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_wpdatatables_cache.table.tmpr0.gz (57/31/fopen): adding to final database dump
+0000.526 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_wpdatatables_cache.table.gz (58/31/fopen): adding to final database dump
+0000.526 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_wpdatatables_columns.table.tmpr7.gz (59/31/fopen): adding to final database dump
+0000.526 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_wpdatatables_columns.table.gz (60/31/fopen): adding to final database dump
+0000.526 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_wpdatatables_rows.table.tmpr0.gz (61/31/fopen): adding to final database dump
+0000.527 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db-table-wp_wpdatatables_rows.table.gz (62/31/fopen): adding to final database dump
+0000.538 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db.gz: finished writing out complete database file (1116.5 KB)
+0000.551 (0) Total database tables backed up: 31 (backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db.gz, size: 1143414, sha1: 27a6fb902fbd65ec5052c64f457366fd81b147c8, sha256: 61cf9cc047678efaffb71a5d0040fdfce81919c07d4c5f46cc7fe3dee2c5212f)
+0000.553 (0) backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db.gz: db: This file has not yet been successfully uploaded: will queue
+0000.553 (0) Saving backup history. Total backup size: 1.1 MB
+0000.554 (0) Requesting upload of the files that have not yet been successfully uploaded (1)
+0000.555 (0) Cloud backup selection (1/1): none with instance (1/1) (last)
+0000.555 (0) No remote despatch: user chose no remote backup service
+0000.555 (0) Recording as successfully uploaded: backup_2023-10-31-0128_Sing_for_Hope_22e8bd634347-db.gz
+0000.556 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=2, retain_db=2
+0000.557 (0) Number of backup sets in history: 1; groups (db): 1
+0000.557 (0) Examining (for databases) backup set with group_id=0, nonce=22e8bd634347, datestamp=1698730126 (Oct 31 2023 05:28:46)
+0000.557 (0) This backup set is the backup set just made, so will not be deleted.
+0000.557 (0) Number of backup sets in history: 1; groups (files): 1
+0000.557 (0) Examining (for files) backup set with nonce=22e8bd634347, datestamp=1698730126 (Oct 31 2023 05:28:46)
+0000.557 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0000.558 (0) Retain: saving new backup history (sets now: 1) and finishing retain operation
+0000.558 (0) Resume backup (22e8bd634347, 0): finish run
+0000.559 (0) Decremented the semaphore (d) by 1
+0000.560 (0) Semaphore (d) unlocked
+0000.560 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0000.561 (0) No email will/can be sent - the user has not configured an email address.
+0000.561 (0) The backup succeeded and is now complete

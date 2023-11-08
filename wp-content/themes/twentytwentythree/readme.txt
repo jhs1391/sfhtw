@@ -1,9 +1,15 @@
 === Twenty Twenty-Three ===
 Contributors: wordpressdotorg
 Requires at least: 6.1
+<<<<<<< HEAD
 Tested up to: 6.4
 Requires PHP: 5.6
 Stable tag: 1.3
+=======
+Tested up to: 6.3
+Requires PHP: 5.6
+Stable tag: 1.2
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,11 +21,14 @@ Whether you want to build a complex or incredibly simple website, you can do it 
 
 == Changelog ==
 
+<<<<<<< HEAD
 = 1.3 =
 * Released: November 7, 2023
 
 https://wordpress.org/documentation/article/twenty-twenty-three-changelog/#Version_1.3
 
+=======
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 = 1.2 =
 * Released: August 8, 2023
 
@@ -49,6 +58,7 @@ This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
+<<<<<<< HEAD
 
 
 This theme bundles the following third-party resources:
@@ -74,3 +84,5 @@ Source Serif Font
 Copyright 2014-2021 Adobe (http://www.adobe.com/)
 License: SIL Open Font License, 1.1, https://opensource.org/licenses/OFL-1.1
 Source: https://github.com/adobe-fonts/source-serif
+=======
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59

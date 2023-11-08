@@ -101,11 +101,17 @@ function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 	 * but maybe better if it's not removable by plugins.
 	 */
 	if ( 'loggedout' === $wp_error->get_error_code() ) {
+<<<<<<< HEAD
 		ob_start();
 		?>
 		<script>if("sessionStorage" in window){try{for(var key in sessionStorage){if(key.indexOf("wp-autosave-")!=-1){sessionStorage.removeItem(key)}}}catch(e){}};</script>
 		<?php
 		wp_print_inline_script_tag( wp_remove_surrounding_empty_script_tags( ob_get_clean() ) );
+=======
+		?>
+		<script>if("sessionStorage" in window){try{for(var key in sessionStorage){if(key.indexOf("wp-autosave-")!=-1){sessionStorage.removeItem(key)}}}catch(e){}};</script>
+		<?php
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 	}
 
 	/**
@@ -195,10 +201,16 @@ function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 	?>
 	</head>
 	<body class="login no-js <?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+<<<<<<< HEAD
 	<?php
 	wp_print_inline_script_tag( "document.body.className = document.body.className.replace('no-js','js');" );
 	?>
 
+=======
+	<script type="text/javascript">
+		document.body.className = document.body.className.replace('no-js','js');
+	</script>
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 	<?php
 	/**
 	 * Fires in the login page header after the body tag is opened.
@@ -231,20 +243,32 @@ function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 	}
 
 	if ( $wp_error->has_errors() ) {
+<<<<<<< HEAD
 		$error_list = array();
 		$messages   = '';
+=======
+		$errors   = '';
+		$messages = '';
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 
 		foreach ( $wp_error->get_error_codes() as $code ) {
 			$severity = $wp_error->get_error_data( $code );
 			foreach ( $wp_error->get_error_messages( $code ) as $error_message ) {
 				if ( 'message' === $severity ) {
+<<<<<<< HEAD
 					$messages .= '<p>' . $error_message . '</p>';
 				} else {
 					$error_list[] = $error_message;
+=======
+					$messages .= '	' . $error_message . "<br />\n";
+				} else {
+					$errors .= '	' . $error_message . "<br />\n";
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 				}
 			}
 		}
 
+<<<<<<< HEAD
 		if ( ! empty( $error_list ) ) {
 			$errors = '';
 
@@ -260,6 +284,9 @@ function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 				$errors .= '<p>' . $error_message . '</p>';
 			}
 
+=======
+		if ( ! empty( $errors ) ) {
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 			/**
 			 * Filters the error messages displayed above the login form.
 			 *
@@ -267,6 +294,7 @@ function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 			 *
 			 * @param string $errors Login error message.
 			 */
+<<<<<<< HEAD
 			$errors = apply_filters( 'login_errors', $errors );
 			wp_admin_notice(
 				$errors,
@@ -276,6 +304,9 @@ function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 					'paragraph_wrap' => false,
 				)
 			);
+=======
+			echo '<div id="login_error">' . apply_filters( 'login_errors', $errors ) . "</div>\n";
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 		}
 
 		if ( ! empty( $messages ) ) {
@@ -286,6 +317,7 @@ function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 			 *
 			 * @param string $messages Login messages.
 			 */
+<<<<<<< HEAD
 			$messages = apply_filters( 'login_messages', $messages );
 			wp_admin_notice(
 				$messages,
@@ -296,6 +328,9 @@ function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 					'paragraph_wrap'     => false,
 				)
 			);
+=======
+			echo '<p class="message" id="login-message">' . apply_filters( 'login_messages', $messages ) . "</p>\n";
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 		}
 	}
 } // End of login_header().
@@ -417,14 +452,22 @@ function login_footer( $input_id = '' ) {
 	<?php
 
 	if ( ! empty( $input_id ) ) {
+<<<<<<< HEAD
 		ob_start();
 		?>
 		<script>
+=======
+		?>
+		<script type="text/javascript">
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 		try{document.getElementById('<?php echo $input_id; ?>').focus();}catch(e){}
 		if(typeof wpOnload==='function')wpOnload();
 		</script>
 		<?php
+<<<<<<< HEAD
 		wp_print_inline_script_tag( wp_remove_surrounding_empty_script_tags( ob_get_clean() ) );
+=======
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 	}
 
 	/**
@@ -435,6 +478,10 @@ function login_footer( $input_id = '' ) {
 	do_action( 'login_footer' );
 
 	?>
+<<<<<<< HEAD
+=======
+	<div class="clear"></div>
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 	</body>
 	</html>
 	<?php
@@ -446,7 +493,15 @@ function login_footer( $input_id = '' ) {
  * @since 3.0.0
  */
 function wp_shake_js() {
+<<<<<<< HEAD
 	wp_print_inline_script_tag( "document.querySelector('form').classList.add('shake');" );
+=======
+	?>
+	<script type="text/javascript">
+	document.querySelector('form').classList.add('shake');
+	</script>
+	<?php
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 }
 
 /**
@@ -860,6 +915,7 @@ switch ( $action ) {
 		 */
 		do_action( 'lost_password', $errors );
 
+<<<<<<< HEAD
 		login_header(
 			__( 'Lost Password' ),
 			wp_get_admin_notice(
@@ -871,6 +927,9 @@ switch ( $action ) {
 			),
 			$errors
 		);
+=======
+		login_header( __( 'Lost Password' ), '<p class="message">' . __( 'Please enter your username or email address. You will receive an email message with instructions on how to reset your password.' ) . '</p>', $errors );
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 
 		$user_login = '';
 
@@ -902,11 +961,19 @@ switch ( $action ) {
 		</form>
 
 		<p id="nav">
+<<<<<<< HEAD
 			<a class="wp-login-log-in" href="<?php echo esc_url( wp_login_url() ); ?>"><?php _e( 'Log in' ); ?></a>
 			<?php
 
 			if ( get_option( 'users_can_register' ) ) {
 				$registration_url = sprintf( '<a class="wp-login-register" href="%s">%s</a>', esc_url( wp_registration_url() ), __( 'Register' ) );
+=======
+			<a href="<?php echo esc_url( wp_login_url() ); ?>"><?php _e( 'Log in' ); ?></a>
+			<?php
+
+			if ( get_option( 'users_can_register' ) ) {
+				$registration_url = sprintf( '<a href="%s">%s</a>', esc_url( wp_registration_url() ), __( 'Register' ) );
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 
 				echo esc_html( $login_link_separator );
 
@@ -987,6 +1054,7 @@ switch ( $action ) {
 		if ( ( ! $errors->has_errors() ) && isset( $_POST['pass1'] ) && ! empty( $_POST['pass1'] ) ) {
 			reset_password( $user, $_POST['pass1'] );
 			setcookie( $rp_cookie, ' ', time() - YEAR_IN_SECONDS, $rp_path, COOKIE_DOMAIN, is_ssl(), true );
+<<<<<<< HEAD
 			login_header(
 				__( 'Password Reset' ),
 				wp_get_admin_notice(
@@ -997,6 +1065,9 @@ switch ( $action ) {
 					)
 				)
 			);
+=======
+			login_header( __( 'Password Reset' ), '<p class="message reset-pass">' . __( 'Your password has been reset.' ) . ' <a href="' . esc_url( wp_login_url() ) . '">' . __( 'Log in' ) . '</a></p>' );
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 			login_footer();
 			exit;
 		}
@@ -1004,6 +1075,7 @@ switch ( $action ) {
 		wp_enqueue_script( 'utils' );
 		wp_enqueue_script( 'user-profile' );
 
+<<<<<<< HEAD
 		login_header(
 			__( 'Reset Password' ),
 			wp_get_admin_notice(
@@ -1015,6 +1087,9 @@ switch ( $action ) {
 			),
 			$errors
 		);
+=======
+		login_header( __( 'Reset Password' ), '<p class="message reset-pass">' . __( 'Enter your new password below or generate one.' ) . '</p>', $errors );
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 
 		?>
 		<form name="resetpassform" id="resetpassform" action="<?php echo esc_url( network_site_url( 'wp-login.php?action=resetpass', 'login_post' ) ); ?>" method="post" autocomplete="off">
@@ -1045,6 +1120,10 @@ switch ( $action ) {
 			</p>
 
 			<p class="description indicator-hint"><?php echo wp_get_password_hint(); ?></p>
+<<<<<<< HEAD
+=======
+			<br class="clear" />
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 
 			<?php
 
@@ -1066,11 +1145,19 @@ switch ( $action ) {
 		</form>
 
 		<p id="nav">
+<<<<<<< HEAD
 			<a class="wp-login-log-in" href="<?php echo esc_url( wp_login_url() ); ?>"><?php _e( 'Log in' ); ?></a>
 			<?php
 
 			if ( get_option( 'users_can_register' ) ) {
 				$registration_url = sprintf( '<a class="wp-login-register" href="%s">%s</a>', esc_url( wp_registration_url() ), __( 'Register' ) );
+=======
+			<a href="<?php echo esc_url( wp_login_url() ); ?>"><?php _e( 'Log in' ); ?></a>
+			<?php
+
+			if ( get_option( 'users_can_register' ) ) {
+				$registration_url = sprintf( '<a href="%s">%s</a>', esc_url( wp_registration_url() ), __( 'Register' ) );
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 
 				echo esc_html( $login_link_separator );
 
@@ -1138,6 +1225,7 @@ switch ( $action ) {
 		 */
 		$redirect_to = apply_filters( 'registration_redirect', $registration_redirect, $errors );
 
+<<<<<<< HEAD
 		login_header(
 			__( 'Registration Form' ),
 			wp_get_admin_notice(
@@ -1149,6 +1237,9 @@ switch ( $action ) {
 			),
 			$errors
 		);
+=======
+		login_header( __( 'Registration Form' ), '<p class="message register">' . __( 'Register For This Site' ) . '</p>', $errors );
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 
 		?>
 		<form name="registerform" id="registerform" action="<?php echo esc_url( site_url( 'wp-login.php?action=register', 'login_post' ) ); ?>" method="post" novalidate="novalidate">
@@ -1173,6 +1264,10 @@ switch ( $action ) {
 			<p id="reg_passmail">
 				<?php _e( 'Registration confirmation will be emailed to you.' ); ?>
 			</p>
+<<<<<<< HEAD
+=======
+			<br class="clear" />
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 			<input type="hidden" name="redirect_to" value="<?php echo esc_attr( $redirect_to ); ?>" />
 			<p class="submit">
 				<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="<?php esc_attr_e( 'Register' ); ?>" />
@@ -1180,12 +1275,20 @@ switch ( $action ) {
 		</form>
 
 		<p id="nav">
+<<<<<<< HEAD
 			<a class="wp-login-log-in" href="<?php echo esc_url( wp_login_url() ); ?>"><?php _e( 'Log in' ); ?></a>
+=======
+			<a href="<?php echo esc_url( wp_login_url() ); ?>"><?php _e( 'Log in' ); ?></a>
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 			<?php
 
 			echo esc_html( $login_link_separator );
 
+<<<<<<< HEAD
 			$html_link = sprintf( '<a class="wp-login-lost-password" href="%s">%s</a>', esc_url( wp_lostpassword_url() ), __( 'Lost your password?' ) );
+=======
+			$html_link = sprintf( '<a href="%s">%s</a>', esc_url( wp_lostpassword_url() ), __( 'Lost your password?' ) );
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 
 			/** This filter is documented in wp-login.php */
 			echo apply_filters( 'lost_password_html_link', $html_link );
@@ -1358,11 +1461,17 @@ switch ( $action ) {
 				do_action( 'login_footer' );
 
 				if ( $customize_login ) {
+<<<<<<< HEAD
 					ob_start();
 					?>
 					<script>setTimeout( function(){ new wp.customize.Messenger({ url: '<?php echo wp_customize_url(); ?>', channel: 'login' }).send('login') }, 1000 );</script>
 					<?php
 					wp_print_inline_script_tag( wp_remove_surrounding_empty_script_tags( ob_get_clean() ) );
+=======
+					?>
+					<script type="text/javascript">setTimeout( function(){ new wp.customize.Messenger({ url: '<?php echo wp_customize_url(); ?>', channel: 'login' }).send('login') }, 1000 );</script>
+					<?php
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 				}
 
 				?>
@@ -1373,7 +1482,11 @@ switch ( $action ) {
 			}
 
 			// Check if it is time to add a redirect to the admin email confirmation screen.
+<<<<<<< HEAD
 			if ( $user instanceof WP_User && $user->exists() && $user->has_cap( 'manage_options' ) ) {
+=======
+			if ( is_a( $user, 'WP_User' ) && $user->exists() && $user->has_cap( 'manage_options' ) ) {
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 				$admin_email_lifespan = (int) get_option( 'admin_email_lifespan' );
 
 				/*
@@ -1551,7 +1664,11 @@ switch ( $action ) {
 				<?php
 
 				if ( get_option( 'users_can_register' ) ) {
+<<<<<<< HEAD
 					$registration_url = sprintf( '<a class="wp-login-register" href="%s">%s</a>', esc_url( wp_registration_url() ), __( 'Register' ) );
+=======
+					$registration_url = sprintf( '<a href="%s">%s</a>', esc_url( wp_registration_url() ), __( 'Register' ) );
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 
 					/** This filter is documented in wp-includes/general-template.php */
 					echo apply_filters( 'register', $registration_url );
@@ -1559,7 +1676,11 @@ switch ( $action ) {
 					echo esc_html( $login_link_separator );
 				}
 
+<<<<<<< HEAD
 				$html_link = sprintf( '<a class="wp-login-lost-password" href="%s">%s</a>', esc_url( wp_lostpassword_url() ), __( 'Lost your password?' ) );
+=======
+				$html_link = sprintf( '<a href="%s">%s</a>', esc_url( wp_lostpassword_url() ), __( 'Lost your password?' ) );
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 
 				/**
 				 * Filters the link that allows the user to reset the lost password.
@@ -1608,12 +1729,24 @@ switch ( $action ) {
 		// Run `wpOnload()` if defined.
 		$login_script .= "if ( typeof wpOnload === 'function' ) { wpOnload() }";
 
+<<<<<<< HEAD
 		wp_print_inline_script_tag( $login_script );
 
 		if ( $interim_login ) {
 			ob_start();
 			?>
 			<script>
+=======
+		?>
+		<script type="text/javascript">
+			<?php echo $login_script; ?>
+		</script>
+		<?php
+
+		if ( $interim_login ) {
+			?>
+			<script type="text/javascript">
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 			( function() {
 				try {
 					var i, links = document.getElementsByTagName( 'a' );
@@ -1627,7 +1760,10 @@ switch ( $action ) {
 			}());
 			</script>
 			<?php
+<<<<<<< HEAD
 			wp_print_inline_script_tag( wp_remove_surrounding_empty_script_tags( ob_get_clean() ) );
+=======
+>>>>>>> 85e356d86661e21ee4792334970736d9997dff59
 		}
 
 		login_footer();
